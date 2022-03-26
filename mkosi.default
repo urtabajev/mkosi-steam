@@ -1,0 +1,18 @@
+[Distribution]
+Distribution=ubuntu
+Release=jammy
+
+[Content]
+Packages=
+	ca-certificates
+	fontconfig
+	libgl1
+	locales
+	mesa-vulkan-drivers
+	sudo
+	systemd-container
+	xfonts-base
+Password=RopkaTamme01
+
+[Partitions]
+RootSize=20G

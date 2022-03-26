@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+set -e
+
+HOSTNAME="steam"
+
+echo "${HOSTNAME}" > /etc/hostname
+echo "127.0.0.1 ${HOSTNAME} localhost" > /etc/hosts
+
+echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
+locale-gen
+
+export DEBIAN_FRONTEND='noninteractive'
+
+# Add 32bit arch as steam is 32 bit
+sed -i 's/deb/deb [arch=amd64,i386]/' /etc/apt/sources.list
+
+dpkg --add-architecture i386
+
+apt update
+
+apt --yes upgrade
+
+# Install required software for steam
+apt --yes install \
+	libpulse0 \
+	mesa-vulkan-drivers:i386 \
+	steam:i386

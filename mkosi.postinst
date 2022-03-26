@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+set -e
+
+USER='said'
+GROUPS='sudo,video'
+HOME="/home/${USER}"
+
+useradd \
+   -m \
+   -G ${GROUPS} \
+   -s /bin/bash \
+   -p "$( awk -F: '/^root:/ {print $2}' /etc/shadow )" \
+   "${USER}"
+
+cat >> "${HOME}/.bashrc" << EOF
+export DISPLAY=:1
+export PULSE_SERVER=unix:/run/host_pulse_native
+systemctl --user import-environment DISPLAY PULSE_SERVER
+EOF
+
+chown -R "${USER}:${USER}" "${HOME}"
+
+# We do not need root password anymore
+passwd -dl root
