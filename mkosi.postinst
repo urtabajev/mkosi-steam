@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-USER='said'
+USER='steam'
 GROUPS='sudo,video'
 HOME="/home/${USER}"
 
