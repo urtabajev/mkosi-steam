@@ -1,6 +1,6 @@
 # Steam in systemd-nspawn container
 
-Created while learning systemd-nspawn and mkosi.
+Created while learning systemd-nspawn and [mkosi](https://0pointer.net/blog/mkosi-a-tool-for-generating-os-images.html).
 
 ## Config
 
