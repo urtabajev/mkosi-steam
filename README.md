@@ -5,7 +5,7 @@ Created while learning systemd-nspawn and mkosi.
 ## Config
 
 * `mkosi.default` holds `Password=`
-* `mkosi.postinst` has `USER` for running `steam`
+* `mkosi.postinst` has `USER` (default is steam) for running `steam`
 
 ## Usage
 
