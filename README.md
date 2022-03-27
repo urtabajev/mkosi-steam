@@ -18,7 +18,7 @@ Created while learning systemd-nspawn and [mkosi](https://0pointer.net/blog/mkos
 When you are happy with image move `image.{raw,nspawn}` from `mkosi.output` to better location and use with running:
 `sudo systemd-nspawn --image=image.raw --settings=trusted`
 
-You may also want to rename `image.raw` and `image.nspawn' to something more meaningful by replacing `image` in both
+You may also want to rename `image.raw` and `image.nspawn` to something more meaningful by replacing `image` in both
 file names to another string (must be same for both).
 
 ### Why some options in mkosi.default not used
