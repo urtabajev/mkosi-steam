@@ -24,3 +24,7 @@ file names to another string (must be same for both).
 ### Why some options in mkosi.default not used
 * `Repositories=` caused exception (for distros using `apt`, adding multiverse for Arch works fine)
 * Section `[Output]` seemed to cause ignoring `[Files]` section in `.nspawn` when `mkosi boot` was used.
+
+## Todo
+* Use bind mount for Steam data makinge easier to replace system.
+* Bring in systemd-sysext.
