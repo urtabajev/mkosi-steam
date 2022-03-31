@@ -1,6 +1,7 @@
 [Distribution]
 Distribution=ubuntu
 Release=jammy
+Repositories=main,restricted,universe,multiverse
 
 [Content]
 Packages=
