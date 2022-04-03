@@ -2,15 +2,24 @@
 
 Created while learning systemd-nspawn and [mkosi](https://0pointer.net/blog/mkosi-a-tool-for-generating-os-images.html).
 
+## Requirements
+* Install `mkosi` with `sudo pip3 install git+https://github.com/systemd/mkosi.git` as packaged versions do not support `Environment=` correctly.
+* Xorg
+* debootstrap
+* systemd
+* systemd-container
+* zstd
+
 ## Config
 
 * `mkosi.default` holds `Password=` (default is `steam`)
-* `mkosi.postinst` has `USER` (default is `steam`) for running `steam`
+* `mkosi.default` has `STEAM_HOSTNAME` for container hostname
+* `mkosi.default` has `STEAM_USER` (default is `steam`) for running `steam`
 
 ## Usage
 
 * Execute `sudo mkosi boot` in repo root
-* Login as `USER` using `Password` value from `mkosi.default`
+* Login as `STEAM_USER` using `Password` value from `mkosi.default`
 * Run `steam`
 
 ## Remarks
@@ -22,7 +31,6 @@ You may also want to rename `image.raw` and `image.nspawn` to something more mea
 file names to another string (must be same for both).
 
 ### Why some options in mkosi.default not used
-* `Repositories=` caused exception (for distros using `apt`, adding multiverse for Arch works fine)
 * Section `[Output]` seemed to cause ignoring `[Files]` section in `.nspawn` when `mkosi boot` was used.
 
 ## Todo

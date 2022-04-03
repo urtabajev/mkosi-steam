@@ -4,6 +4,10 @@ Release=jammy
 Repositories=main,restricted,universe,multiverse
 
 [Content]
+Environment=
+    STEAM_HOSTNAME=steam
+    STEAM_GROUPS=sudo,video
+    STEAM_USER=steam
 Packages=
 	ca-certificates
 	fontconfig

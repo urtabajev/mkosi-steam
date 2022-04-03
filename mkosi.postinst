@@ -1,24 +1,23 @@
 #!/usr/bin/env sh
 set -e
 
-USER='steam'
-GROUPS='sudo,video'
-HOME="/home/${USER}"
+STEAM_HOME="/home/${USER}"
 
 useradd \
+   -d ${STEAM_HOME} \
    -m \
-   -G ${GROUPS} \
+   -G ${STEAM_GROUPS} \
    -s /bin/bash \
    -p "$( awk -F: '/^root:/ {print $2}' /etc/shadow )" \
-   "${USER}"
+   "${STEAM_USER}"
 
-cat >> "${HOME}/.bashrc" << EOF
+cat >> "${STEAM_HOME}/.bashrc" << EOF
 export DISPLAY=:1
 export PULSE_SERVER=unix:/run/host_pulse_native
 systemctl --user import-environment DISPLAY PULSE_SERVER
 EOF
 
-chown -R "${USER}:${USER}" "${HOME}"
+chown -R "${STEAM_USER}:${STEAM_USER}" "${STEAM_HOME}"
 
 # We do not need root password anymore
 passwd -dl root
