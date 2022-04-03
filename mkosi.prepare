@@ -22,6 +22,5 @@ apt --yes upgrade
 
 # Install required software for steam
 apt --yes install \
-	libpulse0 \
 	mesa-vulkan-drivers:i386 \
 	steam:i386

@@ -8,12 +8,13 @@ Packages=
 	ca-certificates
 	fontconfig
 	libgl1
+	libpulse0
 	locales
 	mesa-vulkan-drivers
 	sudo
 	systemd-container
 	xfonts-base
-Password=RopkaTamme01
+Password=steam
 
 [Partitions]
 RootSize=20G
